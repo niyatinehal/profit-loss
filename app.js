@@ -9,23 +9,31 @@ function calculateProfitOrLoss(){
     var initial=Number(initialPrice.value);
     var stock=Number(stockQuantity.value);
     var  current=Number(currentPrice.value);
-    if(initial>current)
+    if (initial<0 || stock<0|| current<0)
     {
-        var loss=(initial-current)*stock;
-        var lossPercentage= (loss/initial)*100;
         result.style.color="red";
-        result.innerText=(`Oh no! You will have to bear the loss of ${loss} and your loss percentage is ${lossPercentage}%`);
-
-    }else if(initial<current)
-    {
-        var profit= (current-initial)*stock;
-        var profitPercentage=(profit/initial)*100;
-        result.style.color="green";
-        result.innerText=(`yay! you made a profit of ${profit} and your profit percentage is ${profitPercentage}%`);
+        result.innerText="Please enter a valid input";
     }
     else{
-        result.innerText=("hey!! no loss no gain.")
+                if(initial>current)
+            {
+                var loss=(initial-current)*stock;
+                var lossPercentage= (loss/initial)*100;
+                result.style.color="red";
+                result.innerText=(`Oh no! You will have to bear the loss of ${loss} and your loss percentage is ${lossPercentage}%`);
+
+            }else if(initial<current)
+            {
+                var profit= (current-initial)*stock;
+                var profitPercentage=(profit/initial)*100;
+                result.style.color="green";
+                result.innerText=(`yay! you made a profit of ${profit} and your profit percentage is ${profitPercentage}%`);
+            }
+            else{
+                result.innerText=("hey!! no loss no gain.")
+            }
     }
+    
 }
 
 resultBtn.addEventListener("click",calculateProfitOrLoss);

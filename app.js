@@ -24,7 +24,7 @@ function calculateProfitOrLoss(){
         result.innerText=(`yay! you made a profit of ${profit} and your profit percentage is ${profitPercentage}%`);
     }
     else{
-        result.innerText=("hey!! no loss no gain. ")
+        result.innerText=("hey!! no loss no gain.")
     }
 }
 

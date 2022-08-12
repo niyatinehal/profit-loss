@@ -13,12 +13,14 @@ function calculateProfitOrLoss(){
     {
         var loss=(initial-current)*stock;
         var lossPercentage= (loss/initial)*100;
+        result.style.color="red";
         result.innerText=(`Oh no! You will have to bear the loss of ${loss} and your loss percentage is ${lossPercentage}%`);
 
     }else if(initial<current)
     {
         var profit= (current-initial)*stock;
         var profitPercentage=(profit/initial)*100;
+        result.style.color="green";
         result.innerText=(`yay! you made a profit of ${profit} and your profit percentage is ${profitPercentage}%`);
     }
     else{

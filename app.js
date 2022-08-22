@@ -9,7 +9,9 @@ function calculateProfitOrLoss(){
     var initial=Number(initialPrice.value);
     var stock=Number(stockQuantity.value);
     var  current=Number(currentPrice.value);
-    if (initial<0 || stock<0|| current<0)
+    if(initial && stock && current)
+    {
+        if (initial<0 || stock<0|| current<0)
     {
         result.style.color="red";
         result.innerText="Please enter a valid input";
@@ -30,10 +32,18 @@ function calculateProfitOrLoss(){
                 result.innerText=(`yay! you made a profit of ${profit} and your profit percentage is ${profitPercentage}%`);
             }
             else{
-                result.innerText=("hey!! no loss no gain.")
+                result.style.color="red";
+                result.innerText=("hey!! no loss no gain.");
             }
+        }
     }
+    else{
+        result.innerText=("enter a valid input.")
+    }
+        
     
 }
+    // }
+    
 
 resultBtn.addEventListener("click",calculateProfitOrLoss);
